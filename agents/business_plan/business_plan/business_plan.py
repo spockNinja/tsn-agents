@@ -87,6 +87,7 @@ def scrape_site(site_url: str, ctx: Context) -> str:
         ctx.write_event_to_stream(
             LogEvent(msg=str(e))
         )
+        raise
     
     return site_text
 
