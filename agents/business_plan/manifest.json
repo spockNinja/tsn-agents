@@ -71,7 +71,7 @@
                 },
                 "project_website": {
                   "title": "Project Website",
-                  "anyOf": [{"type": "string"}, {"type": "null"}],
+                  "type": "string",
                   "description": "An Existing Project Website"
                 },
                 "additional_context": {
