@@ -101,7 +101,7 @@ class BusinessPlan(Workflow):
         super().__init__(verbose=verbose, **workflow_kwargs)
 
         self.llm = OpenAI(
-            model="openai/gpt-4.5-preview",
+            model="gpt-4.5-preview",
             api_key=os.getenv("OPENROUTER_API_KEY", "Fake"),
             api_base=os.getenv("OPENROUTER_API_URL")
         )
