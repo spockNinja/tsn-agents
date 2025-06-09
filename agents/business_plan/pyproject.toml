@@ -1,0 +1,20 @@
+[project]
+name = "business_plan"
+version = "0.1.0"
+description = "Agent to generate business plans for regenerative projects"
+authors = [
+    {name = "Jacob Foster", email = "jacob.foster@bioharmony.cloud"}
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<4.0"
+llama-index-core = "^0.12.30"
+selenium = "^4.33.0"
+
+[tool.poetry.group.manifest.dependencies]
+agntcy_acp = "v0.1.0a2"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

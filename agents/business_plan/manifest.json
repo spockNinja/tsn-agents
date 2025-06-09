@@ -1,0 +1,139 @@
+{
+    "authors": ["Jacob Foster"],
+    "annotations": {
+      "type": "llama-index"
+    },
+    "created_at": "2025-06-08T00:00:00Z",
+    "name": "regen_business_plan_generator",
+    "description": "Build your Business Plan",
+    "version": "0.0.1",   
+    "schema_version": "0.3.1",
+    "skills": [
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Contextual Comprehension",
+        "class_uid": 10101
+      },
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Text Style Transfer",
+        "class_uid": 10206
+      },
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Tone and Style Adjustment",
+        "class_uid": 10602
+      },
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Problem Solving",
+        "class_uid": 10702
+      },
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Text Paraphrasing",
+        "class_uid": 10203
+      },
+      {
+        "category_name": "Natural Language Processing",
+        "category_uid": 1,
+        "class_name": "Knowledge Synthesis",
+        "class_uid": 10303
+      }
+    ],
+    "locators": [
+      {
+        "type": "source-code",
+        "url": "https://github.com/spockNinja/tsn-agents/tree/main/agents/business_plan"
+      }
+    ],
+    "extensions": [ 
+      {
+        "name": "oasf.agntcy.org/feature/runtime/manifest",
+        "data": {
+          "acp": {
+            "capabilities": {
+              "threads": false,
+              "interrupts": false,
+              "callbacks": false
+            },
+            "input": {
+              "properties": {
+                "project_name": {
+                  "description": "The name of your project",
+                  "title": "Project Name",
+                  "type": "string"
+                },
+                "project_website": {
+                  "title": "Project Website",
+                  "anyOf": [{"type": "string"}, {"type": "null"}],
+                  "description": "An Existing Project Website"
+                },
+                "additional_context": {
+                  "title": "Additional Context",
+                  "type": "string",
+                  "description": "Any other details you want the AI to know about your project."
+                }
+              },
+              "required": [
+                "project_name",
+                "additional_context"
+              ],
+              "title": "Generate a Business Plan",
+              "type": "object"
+            },
+            "output": {
+              "properties": {
+                "business_plan": {
+                  "default": "",
+                  "description": "Your business plan",
+                  "title": "Business Plan",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "business_plan"
+              ],
+              "title": "Business Plan",
+              "type": "object"
+            },
+            "config": {
+              "properties": {},
+              "title": "ConfigSchema",
+              "type": "object"
+            }
+          },
+          "deployment": {
+            "deployment_options": [
+              {
+                "type": "source_code",
+                "name": "src",
+                "url": "https://github.com/spockNinja/tsn-agents.git//agents/business_plan",
+                "framework_config": {
+                  "framework_type": "llamaindex",
+                  "path": "business_plan:business_plan_workflow"
+                }
+              }
+            ],
+            "env_vars": [
+              {
+                "desc": "API key for the OpenAI service",
+                "name": "OPENROUTER_API_KEY"
+              },
+              {
+                "desc": "Base URL for the OpenAI service",
+                "name": "OPENROUTER_API_URL"
+              }
+            ],
+            "agent_deps": []
+          }
+        },
+        "version": "v0.2.2"
+      }
+    ]
+  }
